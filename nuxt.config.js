@@ -62,9 +62,13 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://www.npmjs.com/package/nuxt-webfontloader
-    'nuxt-webfontloader'
-    // 'nuxt-microcms-module'
+    'nuxt-webfontloader',
+    '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
+
+  // Build Configuration: https://go.nuxtjs.dev/config-build
+  build: {},
 
   // Google Font
   webfontloader: {
@@ -73,8 +77,19 @@ export default {
     }
   },
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  auth: {
+    redirect: {
+      login: '/login',
+      logout: '/',
+      callback: '/callback',
+      home: '/mypage'
+    },
+    strategies: {
+      google: {
+        client_id: '407814698397-uj6f7sdcav84rmt4tprb2tb57n1t60oa.apps.googleusercontent.com'
+      }
+    }
+  },
 
   microcms: {
     options: {
